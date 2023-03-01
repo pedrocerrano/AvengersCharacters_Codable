@@ -16,6 +16,7 @@
 		293FDDB129AFE4180035DB3B /* AvengerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB029AFE4180035DB3B /* AvengerDetailVC.swift */; };
 		293FDDB429AFF99B0035DB3B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB329AFF99B0035DB3B /* Constants.swift */; };
 		293FDDB629AFFC8F0035DB3B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB529AFFC8F0035DB3B /* NetworkError.swift */; };
+		293FDDB829AFFD2B0035DB3B /* Avengers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB729AFFD2B0035DB3B /* Avengers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		293FDDB029AFE4180035DB3B /* AvengerDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailVC.swift; sourceTree = "<group>"; };
 		293FDDB329AFF99B0035DB3B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		293FDDB529AFFC8F0035DB3B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		293FDDB729AFFD2B0035DB3B /* Avengers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avengers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		293FDDA929AFDF900035DB3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				293FDDB729AFFD2B0035DB3B /* Avengers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				293FDDB429AFF99B0035DB3B /* Constants.swift in Sources */,
+				293FDDB829AFFD2B0035DB3B /* Avengers.swift in Sources */,
 				293FDDB129AFE4180035DB3B /* AvengerDetailVC.swift in Sources */,
 				293FDDAF29AFE3C00035DB3B /* AvengerListViewController.swift in Sources */,
 				293FDDB629AFFC8F0035DB3B /* NetworkError.swift in Sources */,
