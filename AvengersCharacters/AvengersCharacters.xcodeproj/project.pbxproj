@@ -10,8 +10,11 @@
 		293FDD9429AFDF250035DB3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDD9329AFDF250035DB3B /* AppDelegate.swift */; };
 		293FDD9629AFDF250035DB3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDD9529AFDF250035DB3B /* SceneDelegate.swift */; };
 		293FDD9B29AFDF250035DB3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 293FDD9929AFDF250035DB3B /* Main.storyboard */; };
-		293FDD9D29AFDF270035DB3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 293FDD9C29AFDF270035DB3B /* Assets.xcassets */; };
 		293FDDA029AFDF270035DB3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 293FDD9E29AFDF270035DB3B /* LaunchScreen.storyboard */; };
+		293FDDAD29AFE1DC0035DB3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 293FDDAC29AFE1DC0035DB3B /* Assets.xcassets */; };
+		293FDDAF29AFE3C00035DB3B /* AvengerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDAE29AFE3C00035DB3B /* AvengerListViewController.swift */; };
+		293FDDB129AFE4180035DB3B /* AvengerDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB029AFE4180035DB3B /* AvengerDetailVC.swift */; };
+		293FDDB429AFF99B0035DB3B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB329AFF99B0035DB3B /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,9 +22,12 @@
 		293FDD9329AFDF250035DB3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		293FDD9529AFDF250035DB3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		293FDD9A29AFDF250035DB3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		293FDD9C29AFDF270035DB3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		293FDD9F29AFDF270035DB3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		293FDDA129AFDF270035DB3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		293FDDAC29AFE1DC0035DB3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		293FDDAE29AFE3C00035DB3B /* AvengerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerListViewController.swift; sourceTree = "<group>"; };
+		293FDDB029AFE4180035DB3B /* AvengerDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailVC.swift; sourceTree = "<group>"; };
+		293FDDB329AFF99B0035DB3B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 				293FDDA929AFDF900035DB3B /* Model */,
 				293FDDAA29AFDFA00035DB3B /* Networking */,
 				293FDDAB29AFDFB60035DB3B /* View Controllers */,
+				293FDDB229AFF9810035DB3B /* Helper + Ext */,
 				293FDDA829AFDF700035DB3B /* Storyboards */,
 				293FDDA729AFDF4C0035DB3B /* Supporting FIles */,
 			);
@@ -68,7 +75,7 @@
 			children = (
 				293FDD9329AFDF250035DB3B /* AppDelegate.swift */,
 				293FDD9529AFDF250035DB3B /* SceneDelegate.swift */,
-				293FDD9C29AFDF270035DB3B /* Assets.xcassets */,
+				293FDDAC29AFE1DC0035DB3B /* Assets.xcassets */,
 				293FDDA129AFDF270035DB3B /* Info.plist */,
 			);
 			path = "Supporting FIles";
@@ -100,8 +107,18 @@
 		293FDDAB29AFDFB60035DB3B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				293FDDAE29AFE3C00035DB3B /* AvengerListViewController.swift */,
+				293FDDB029AFE4180035DB3B /* AvengerDetailVC.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		293FDDB229AFF9810035DB3B /* Helper + Ext */ = {
+			isa = PBXGroup;
+			children = (
+				293FDDB329AFF99B0035DB3B /* Constants.swift */,
+			);
+			path = "Helper + Ext";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				293FDDA029AFDF270035DB3B /* LaunchScreen.storyboard in Resources */,
-				293FDD9D29AFDF270035DB3B /* Assets.xcassets in Resources */,
+				293FDDAD29AFE1DC0035DB3B /* Assets.xcassets in Resources */,
 				293FDD9B29AFDF250035DB3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293FDDB429AFF99B0035DB3B /* Constants.swift in Sources */,
+				293FDDB129AFE4180035DB3B /* AvengerDetailVC.swift in Sources */,
+				293FDDAF29AFE3C00035DB3B /* AvengerListViewController.swift in Sources */,
 				293FDD9429AFDF250035DB3B /* AppDelegate.swift in Sources */,
 				293FDD9629AFDF250035DB3B /* SceneDelegate.swift in Sources */,
 			);
