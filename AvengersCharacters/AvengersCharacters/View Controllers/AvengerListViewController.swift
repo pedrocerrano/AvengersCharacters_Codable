@@ -51,12 +51,19 @@ class AvengerListViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        toAvengerDetailVC
+        if segue.identifier == "toAvengerDetailVC" {
+            guard let index = avengersListTableView.indexPathForSelectedRow,
+                  let destinationVC = segue.destination as? AvengerDetailVC else { return }
+            let avenger = avengers[index.row]
+            destinationVC.avenger = avenger
+        }
     }
 } //: CLASS
 
 
+//MARK: - EXT: TableView DataSource
 extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return avengers.count
     }

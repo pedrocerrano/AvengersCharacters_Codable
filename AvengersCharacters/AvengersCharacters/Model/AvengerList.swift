@@ -1,5 +1,5 @@
 //
-//  AvengersListTopLevelDictionary.swift
+//  AvengersList.swift
 //  AvengersCharacters
 //
 //  Created by iMac Pro on 3/1/23.
@@ -38,12 +38,12 @@ struct Avenger: Decodable {
     let avengerID: Int
     let avengerName: String
     let avengerDescription: String
-    let avengerImage: Thumbnail
+    let avengerImage: AvengerThumbnail
     let avengerURI: String
     let avengerComics: Comics
 }
 
-struct Thumbnail: Decodable {
+struct AvengerThumbnail: Decodable {
     private enum CodingKeys: String, CodingKey {
         case imagePath      = "path"
         case imageExtention = "extension"

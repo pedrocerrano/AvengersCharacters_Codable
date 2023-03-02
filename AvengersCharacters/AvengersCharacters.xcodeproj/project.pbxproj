@@ -19,6 +19,8 @@
 		293FDDB829AFFD2B0035DB3B /* AvengerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB729AFFD2B0035DB3B /* AvengerList.swift */; };
 		293FDDBA29B005F30035DB3B /* AvengerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDB929B005F30035DB3B /* AvengerService.swift */; };
 		293FDDBD29B00A900035DB3B /* AvengerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDBC29B00A900035DB3B /* AvengerListTableViewCell.swift */; };
+		29F57D5329B152A9006B9829 /* AvengerDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F57D5229B152A9006B9829 /* AvengerDetailTableViewCell.swift */; };
+		29F57D5529B15554006B9829 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F57D5429B15554006B9829 /* Comic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		293FDDB729AFFD2B0035DB3B /* AvengerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerList.swift; sourceTree = "<group>"; };
 		293FDDB929B005F30035DB3B /* AvengerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerService.swift; sourceTree = "<group>"; };
 		293FDDBC29B00A900035DB3B /* AvengerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerListTableViewCell.swift; sourceTree = "<group>"; };
+		29F57D5229B152A9006B9829 /* AvengerDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailTableViewCell.swift; sourceTree = "<group>"; };
+		29F57D5429B15554006B9829 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				293FDDB729AFFD2B0035DB3B /* AvengerList.swift */,
+				29F57D5429B15554006B9829 /* Comic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				293FDDBC29B00A900035DB3B /* AvengerListTableViewCell.swift */,
+				29F57D5229B152A9006B9829 /* AvengerDetailTableViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -217,7 +223,9 @@
 				293FDDB829AFFD2B0035DB3B /* AvengerList.swift in Sources */,
 				293FDDBD29B00A900035DB3B /* AvengerListTableViewCell.swift in Sources */,
 				293FDDB129AFE4180035DB3B /* AvengerDetailVC.swift in Sources */,
+				29F57D5529B15554006B9829 /* Comic.swift in Sources */,
 				293FDDAF29AFE3C00035DB3B /* AvengerListViewController.swift in Sources */,
+				29F57D5329B152A9006B9829 /* AvengerDetailTableViewCell.swift in Sources */,
 				293FDDB629AFFC8F0035DB3B /* NetworkError.swift in Sources */,
 				293FDD9429AFDF250035DB3B /* AppDelegate.swift in Sources */,
 				293FDD9629AFDF250035DB3B /* SceneDelegate.swift in Sources */,
