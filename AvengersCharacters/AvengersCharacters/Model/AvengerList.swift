@@ -8,25 +8,36 @@
 import Foundation
 
 struct AvengersListTopLevelDictionary: Decodable {
-    let data: Results
+    private enum CodingKeys: String, CodingKey {
+        case listData = "data"
+    }
+    
+    let listData: Results
 }
 
 struct Results: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case offset
+        case listResults = "results"
+    }
+    
     let offset: Int
-    let results: [Avenger]
+    let listResults: [Avenger]
 }
 
 struct Avenger: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case avengerID      = "id"
-        case avengerName    = "name"
-        case avengerImage   = "thumbnail"
-        case avengerURI     = "resourceURI"
-        case avengerComics  = "comics"
+        case avengerID          = "id"
+        case avengerName        = "name"
+        case avengerDescription = "description"
+        case avengerImage       = "thumbnail"
+        case avengerURI         = "resourceURI"
+        case avengerComics      = "comics"
     }
     
     let avengerID: Int
     let avengerName: String
+    let avengerDescription: String
     let avengerImage: Thumbnail
     let avengerURI: String
     let avengerComics: Comics
@@ -34,11 +45,11 @@ struct Avenger: Decodable {
 
 struct Thumbnail: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case path
+        case imagePath      = "path"
         case imageExtention = "extension"
     }
     
-    let path: String
+    let imagePath: String
     let imageExtention: String
 }
 

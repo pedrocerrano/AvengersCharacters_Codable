@@ -9,7 +9,6 @@ import UIKit
 
 struct AvengerService {
     
-// REFERENCE URL: https://gateway.marvel.com/v1/public/characters?limit=100&offset=0&ts=1&apikey=68470b7b93879cefb8d99a7c5a5b6c0f&hash=2823b9ddec02040bbdd3b5a6ae2c70f9
     static func fetchAvengerList(paginationOffset offset: String, completion: @escaping (Result<AvengersListTopLevelDictionary, NetworkError>) -> Void) {
         guard let baseURL = URL(string: Constants.AvengersURL.baseURL) else { completion(.failure(.invalidURL)) ; return }
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -40,6 +39,7 @@ struct AvengerService {
                 completion(.success(topLevel))
             } catch {
                 completion(.failure(.unableToDecode))
+                print("from fetchAvengerList data.")
             }
         }.resume()
     }
@@ -71,7 +71,7 @@ struct AvengerService {
             guard let data = data else { completion(.failure(.noData)) ; return }
             do {
                 let topLevel = try JSONDecoder().decode(AvengersListTopLevelDictionary.self, from: data)
-                if let avenger = topLevel.data.results.first {
+                if let avenger = topLevel.listData.listResults.first {
                     completion(.success(avenger))
                 } else {
                     completion(.failure(.emptyArray))
@@ -85,7 +85,7 @@ struct AvengerService {
     
     
     static func fetchAvengerImage(forAvenger avenger: Avenger, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
-        guard let finalURL = URL(string: "\(avenger.avengerImage.path).\(avenger.avengerImage.imageExtention)") else { completion(.failure(.invalidURL)) ; return }
+        guard let finalURL = URL(string: "\(avenger.avengerImage.imagePath).\(avenger.avengerImage.imageExtention)") else { completion(.failure(.invalidURL)) ; return }
         print("fetchAvengerImage Final URL: \(finalURL)")
         
         URLSession.shared.dataTask(with: finalURL) { data, response, error in
@@ -102,7 +102,6 @@ struct AvengerService {
             
             guard let image = UIImage(data: data) else { completion(.failure(.unableToDecode)) ; return }
             completion(.success(image))
-            
         }.resume()
     }
     

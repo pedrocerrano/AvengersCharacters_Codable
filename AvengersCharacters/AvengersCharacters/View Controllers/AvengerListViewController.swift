@@ -34,7 +34,10 @@ class AvengerListViewController: UIViewController {
             switch result {
             case .success(let topLevel):
                 self?.topLevel = topLevel
-                self?.avengers = topLevel.data.results
+                self?.avengers = topLevel.listData.listResults.filter({ avenger in
+                    avenger.avengerDescription != ""
+                })
+                
                 DispatchQueue.main.async {
                     self?.avengersListTableView.reloadData()
                 }
@@ -75,7 +78,7 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
                 switch result {
                 case .success(let topLevel):
                     self?.topLevel = topLevel
-                    self?.avengers.append(contentsOf: topLevel.data.results)
+                    self?.avengers.append(contentsOf: topLevel.listData.listResults)
                     DispatchQueue.main.async {
                         self?.avengersListTableView.reloadData()
                     }

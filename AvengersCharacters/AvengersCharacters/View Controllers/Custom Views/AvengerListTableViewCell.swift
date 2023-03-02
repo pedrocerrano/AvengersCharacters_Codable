@@ -38,14 +38,20 @@ class AvengerListTableViewCell: UITableViewCell {
     
     
     func fetchAvengerImage(forAvenger avenger: Avenger) {
-        AvengerService.fetchAvengerImage(forAvenger: avenger) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.avengerImageView.image = image
+        if avenger.avengerImage.imagePath.contains("image_not_available") || avenger.avengerImage.imageExtention.contains("gif") {
+            DispatchQueue.main.async {
+                self.avengerImageView.image = UIImage(named: "AvengersALogo")
+            }
+        } else {
+            AvengerService.fetchAvengerImage(forAvenger: avenger) { [weak self] result in
+                switch result {
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self?.avengerImageView.image = image
+                    }
+                case .failure(let error):
+                    print(error.errorDescription ?? Constants.Error.unknownError)
                 }
-            case .failure(let error):
-                print(error.errorDescription ?? Constants.Error.unknownError)
             }
         }
     }
