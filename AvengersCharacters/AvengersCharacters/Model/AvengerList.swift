@@ -1,5 +1,5 @@
 //
-//  Avenger.swift
+//  AvengersListTopLevelDictionary.swift
 //  AvengersCharacters
 //
 //  Created by iMac Pro on 3/1/23.
@@ -7,25 +7,28 @@
 
 import Foundation
 
-struct AvengersTopLevelDictionary: Decodable {
+struct AvengersListTopLevelDictionary: Decodable {
     let data: Results
 }
 
 struct Results: Decodable {
+    let offset: Int
     let results: [Avenger]
 }
 
 struct Avenger: Decodable {
     private enum CodingKeys: String, CodingKey {
-        case avengerID = "id"
-        case avengerName = "name"
-        case avengerImage = "thumbnail"
-        case avengerComics = "comics"
+        case avengerID      = "id"
+        case avengerName    = "name"
+        case avengerImage   = "thumbnail"
+        case avengerURI     = "resourceURI"
+        case avengerComics  = "comics"
     }
     
     let avengerID: Int
     let avengerName: String
     let avengerImage: Thumbnail
+    let avengerURI: String
     let avengerComics: Comics
 }
 

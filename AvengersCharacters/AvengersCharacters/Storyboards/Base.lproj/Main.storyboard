@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="fid-6T-cHe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="fid-6T-cHe">
                                 <rect key="frame" x="0.0" y="103" width="393" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="Wrf-9W-gAq"/>
@@ -26,14 +26,46 @@
                                 <rect key="frame" x="0.0" y="223" width="393" height="595"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="avengerCell" id="LCD-sn-4hP">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="avengerCell" id="LCD-sn-4hP" customClass="AvengerListTableViewCell" customModule="AvengersCharacters" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LCD-sn-4hP" id="xGr-bw-2OA">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100.33333587646484"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-xD-WTQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="381" height="100.33333333333333"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Dd-dr-nCw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100.33333333333333"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="9Dd-dr-nCw" secondAttribute="height" multiplier="1:1" id="hSy-r6-UZZ"/>
+                                                                <constraint firstAttribute="width" constant="100" id="n40-0B-8fV"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(avenger name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfK-hI-zz0">
+                                                            <rect key="frame" x="108.00000000000001" y="0.0" width="252.33333333333337" height="100.33333333333333"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OGh-hg-70g">
+                                                            <rect key="frame" x="368.33333333333331" y="2" width="12.666666666666686" height="96.666666666666657"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F5R-xD-WTQ" firstAttribute="top" secondItem="xGr-bw-2OA" secondAttribute="top" id="T9b-YU-qQu"/>
+                                                <constraint firstItem="F5R-xD-WTQ" firstAttribute="leading" secondItem="xGr-bw-2OA" secondAttribute="leading" id="dVA-Wd-PnD"/>
+                                                <constraint firstAttribute="trailing" secondItem="F5R-xD-WTQ" secondAttribute="trailing" constant="12" id="gXT-O7-0Ze"/>
+                                                <constraint firstAttribute="bottom" secondItem="F5R-xD-WTQ" secondAttribute="bottom" id="qGC-iU-fZO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="avengerImageView" destination="9Dd-dr-nCw" id="rR8-TS-A4V"/>
+                                            <outlet property="avengerNameLabel" destination="CfK-hI-zz0" id="J4e-gx-Tio"/>
                                             <segue destination="cp7-R5-Rd2" kind="show" identifier="toAvengerDetailVC" id="54j-eS-lCh"/>
                                         </connections>
                                     </tableViewCell>
@@ -98,6 +130,7 @@
     </scenes>
     <resources>
         <image name="avengers" width="423" height="119"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

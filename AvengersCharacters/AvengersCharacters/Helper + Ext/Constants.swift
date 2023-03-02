@@ -28,4 +28,8 @@ struct Constants {
         static let hashKey          = "hash"
         static let hashValue        = "2823b9ddec02040bbdd3b5a6ae2c70f9"
     }
+    
+    struct Error {
+        static let unknownError = "Unknown error. You guess is as good as mine."
+    }
 }
