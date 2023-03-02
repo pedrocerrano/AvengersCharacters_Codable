@@ -21,6 +21,7 @@
 		293FDDBD29B00A900035DB3B /* AvengerListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293FDDBC29B00A900035DB3B /* AvengerListTableViewCell.swift */; };
 		29F57D5329B152A9006B9829 /* AvengerDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F57D5229B152A9006B9829 /* AvengerDetailTableViewCell.swift */; };
 		29F57D5529B15554006B9829 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F57D5429B15554006B9829 /* Comic.swift */; };
+		29F57D5729B15C11006B9829 /* ComicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F57D5629B15C11006B9829 /* ComicService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		293FDDBC29B00A900035DB3B /* AvengerListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerListTableViewCell.swift; sourceTree = "<group>"; };
 		29F57D5229B152A9006B9829 /* AvengerDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvengerDetailTableViewCell.swift; sourceTree = "<group>"; };
 		29F57D5429B15554006B9829 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		29F57D5629B15C11006B9829 /* ComicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				293FDDB929B005F30035DB3B /* AvengerService.swift */,
+				29F57D5629B15C11006B9829 /* ComicService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				293FDDBA29B005F30035DB3B /* AvengerService.swift in Sources */,
+				29F57D5729B15C11006B9829 /* ComicService.swift in Sources */,
 				293FDDB429AFF99B0035DB3B /* Constants.swift in Sources */,
 				293FDDB829AFFD2B0035DB3B /* AvengerList.swift in Sources */,
 				293FDDBD29B00A900035DB3B /* AvengerListTableViewCell.swift in Sources */,
