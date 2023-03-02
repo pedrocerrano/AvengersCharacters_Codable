@@ -45,45 +45,6 @@ struct AvengerService {
     }
     
     
-    static func fetchAvenger(forAvenger avenger: Avenger, completion: @escaping (Result<Avenger, NetworkError>) -> Void) {
-        guard let baseURL = URL(string: Constants.AvengersURL.baseURL) else { completion(.failure(.invalidURL)) ; return }
-        var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.path.append("/\(avenger.avengerID)")
-        
-        let timeStampQuery  = URLQueryItem(name: Constants.UrlQueryComponents.timeStampKey, value: Constants.UrlQueryComponents.timeStampValue)
-        let apiQuery        = URLQueryItem(name: Constants.UrlQueryComponents.apiKeyKey, value: Constants.UrlQueryComponents.apiKeyValue)
-        let hashQuery       = URLQueryItem(name: Constants.UrlQueryComponents.hashKey, value: Constants.UrlQueryComponents.hashValue)
-        urlComponents?.queryItems = [timeStampQuery, apiQuery, hashQuery]
-        
-        guard let finalURL = urlComponents?.url else { completion(.failure(.invalidURL)) ; return }
-        print("fetchAvenger Final URL: \(finalURL)")
-        
-        URLSession.shared.dataTask(with: finalURL) { data, response, error in
-            if let error = error {
-                completion(.failure(.thrownError(error)))
-                return
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                print("fetchAvenger Response Status Code: \(response.statusCode)")
-            }
-            
-            guard let data = data else { completion(.failure(.noData)) ; return }
-            do {
-                let topLevel = try JSONDecoder().decode(AvengersListTopLevelDictionary.self, from: data)
-                if let avenger = topLevel.listData.listResults.first {
-                    completion(.success(avenger))
-                } else {
-                    completion(.failure(.emptyArray))
-                    return
-                }
-            } catch {
-                completion(.failure(.unableToDecode))
-            }
-        }.resume()
-    }
-    
-    
     static func fetchAvengerImage(forAvenger avenger: Avenger, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
         guard let finalURL = URL(string: "\(avenger.avengerImage.imagePath).\(avenger.avengerImage.imageExtention)") else { completion(.failure(.invalidURL)) ; return }
         print("fetchAvengerImage Final URL: \(finalURL)")

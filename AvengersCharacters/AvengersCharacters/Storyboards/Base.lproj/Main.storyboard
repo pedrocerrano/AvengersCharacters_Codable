@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Avenger List-->
+        <!--Avengers-->
         <scene sceneID="Afm-mY-JJS">
             <objects>
                 <viewController id="fwc-oA-5FP" customClass="AvengerListViewController" customModule="AvengersCharacters" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-xD-WTQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="381" height="100.33333333333333"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Dd-dr-nCw">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Dd-dr-nCw">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100.33333333333333"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="9Dd-dr-nCw" secondAttribute="height" multiplier="1:1" id="hSy-r6-UZZ"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="ceU-Qf-1cS" firstAttribute="bottom" secondItem="tJJ-8F-azJ" secondAttribute="bottom" id="x6U-Fe-DR0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Avenger List" id="6JK-uq-4tV"/>
+                    <navigationItem key="navigationItem" title="Avengers" id="6JK-uq-4tV"/>
                     <connections>
                         <outlet property="avengersListTableView" destination="tJJ-8F-azJ" id="wc1-pB-qfT"/>
                     </connections>
@@ -100,14 +100,80 @@
                     <view key="view" contentMode="scaleToFill" id="u6Q-az-bxY">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avengers" translatesAutoresizingMaskIntoConstraints="NO" id="3z0-RJ-Rqj">
+                                <rect key="frame" x="0.0" y="103" width="393" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="seF-f8-Q4N"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-LH-SPa">
+                                <rect key="frame" x="0.0" y="323" width="393" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="X3c-4U-b1y"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(avenger name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8h-X4-t4i">
+                                <rect key="frame" x="12" y="323" width="369" height="60"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(comics appearing in)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV5-9j-kjV">
+                                <rect key="frame" x="12" y="395" width="369" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-Jq-KO8">
+                                <rect key="frame" x="0.0" y="428" width="393" height="390"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comicCell" id="eAl-dY-xzV">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eAl-dY-xzV" id="Ohu-5L-B5E">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="SXR-f4-fPo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CKM-Jq-KO8" firstAttribute="leading" secondItem="SXR-f4-fPo" secondAttribute="leading" id="0hb-dq-uzV"/>
+                            <constraint firstItem="N8h-X4-t4i" firstAttribute="top" secondItem="mfT-LH-SPa" secondAttribute="top" id="0pi-1c-FvS"/>
+                            <constraint firstItem="N8h-X4-t4i" firstAttribute="trailing" secondItem="SXR-f4-fPo" secondAttribute="trailing" constant="-12" id="1wC-MF-5On"/>
+                            <constraint firstItem="mfT-LH-SPa" firstAttribute="bottom" secondItem="3z0-RJ-Rqj" secondAttribute="bottom" id="C2R-x7-Cq8"/>
+                            <constraint firstItem="SXR-f4-fPo" firstAttribute="bottom" secondItem="CKM-Jq-KO8" secondAttribute="bottom" id="CCw-1t-r0B"/>
+                            <constraint firstItem="SXR-f4-fPo" firstAttribute="trailing" secondItem="CKM-Jq-KO8" secondAttribute="trailing" id="GhX-pD-rVQ"/>
+                            <constraint firstItem="mfT-LH-SPa" firstAttribute="leading" secondItem="SXR-f4-fPo" secondAttribute="leading" id="HKA-gF-RFS"/>
+                            <constraint firstItem="SXR-f4-fPo" firstAttribute="trailing" secondItem="aV5-9j-kjV" secondAttribute="trailing" constant="12" id="VGZ-of-QH8"/>
+                            <constraint firstItem="3z0-RJ-Rqj" firstAttribute="top" secondItem="SXR-f4-fPo" secondAttribute="top" id="Vy0-Yo-CKw"/>
+                            <constraint firstItem="CKM-Jq-KO8" firstAttribute="top" secondItem="aV5-9j-kjV" secondAttribute="bottom" constant="12" id="W7M-Ni-OVp"/>
+                            <constraint firstItem="SXR-f4-fPo" firstAttribute="trailing" secondItem="3z0-RJ-Rqj" secondAttribute="trailing" id="XN2-W8-pnN"/>
+                            <constraint firstItem="N8h-X4-t4i" firstAttribute="bottom" secondItem="mfT-LH-SPa" secondAttribute="bottom" id="ca8-dg-2vM"/>
+                            <constraint firstItem="N8h-X4-t4i" firstAttribute="leading" secondItem="SXR-f4-fPo" secondAttribute="leading" constant="12" id="d0m-D8-ahP"/>
+                            <constraint firstItem="3z0-RJ-Rqj" firstAttribute="leading" secondItem="SXR-f4-fPo" secondAttribute="leading" id="jWj-dT-Zam"/>
+                            <constraint firstItem="SXR-f4-fPo" firstAttribute="trailing" secondItem="mfT-LH-SPa" secondAttribute="trailing" id="oTn-V3-ayh"/>
+                            <constraint firstItem="aV5-9j-kjV" firstAttribute="top" secondItem="3z0-RJ-Rqj" secondAttribute="bottom" constant="12" id="s28-ze-54w"/>
+                            <constraint firstItem="aV5-9j-kjV" firstAttribute="leading" secondItem="SXR-f4-fPo" secondAttribute="leading" constant="12" id="vYZ-Mg-3H5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8kk-dV-vCq"/>
+                    <connections>
+                        <outlet property="avengerImageView" destination="3z0-RJ-Rqj" id="V6m-yx-OOz"/>
+                        <outlet property="avengerNameLabel" destination="N8h-X4-t4i" id="0rH-JC-gGJ"/>
+                        <outlet property="comicListTableView" destination="CKM-Jq-KO8" id="Cez-ml-kg8"/>
+                        <outlet property="comicsApperingInLabel" destination="aV5-9j-kjV" id="rxE-9q-30M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qnz-Le-j5a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2117" y="-144"/>
+            <point key="canvasLocation" x="2116.7938931297708" y="-144.36619718309859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eVD-T0-pao">

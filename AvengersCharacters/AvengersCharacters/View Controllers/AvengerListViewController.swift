@@ -34,8 +34,8 @@ class AvengerListViewController: UIViewController {
             switch result {
             case .success(let topLevel):
                 self?.topLevel = topLevel
-                self?.avengers = topLevel.listData.listResults.filter({ avenger in
-                    avenger.avengerDescription != ""
+                self?.avengers = topLevel.listData.listResults.filter ({ avenger in
+                    !avenger.avengerImage.imagePath.contains("image_not_available") && !avenger.avengerImage.imageExtention.contains("gif")
                 })
                 
                 DispatchQueue.main.async {
@@ -61,6 +61,7 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
         return avengers.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "avengerCell", for: indexPath) as? AvengerListTableViewCell else { return UITableViewCell() }
         
@@ -70,6 +71,7 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == avengers.count - 1 {
@@ -78,7 +80,10 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
                 switch result {
                 case .success(let topLevel):
                     self?.topLevel = topLevel
-                    self?.avengers.append(contentsOf: topLevel.listData.listResults)
+                    let newAvengers = topLevel.listData.listResults.filter ({ avenger in
+                        !avenger.avengerImage.imagePath.contains("image_not_available") && !avenger.avengerImage.imageExtention.contains("gif")
+                    })
+                    self?.avengers.append(contentsOf: newAvengers)
                     DispatchQueue.main.async {
                         self?.avengersListTableView.reloadData()
                     }
