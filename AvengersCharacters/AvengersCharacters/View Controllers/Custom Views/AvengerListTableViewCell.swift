@@ -24,11 +24,6 @@ class AvengerListTableViewCell: UITableViewCell {
     
     func updateUI(forAvenger avenger: Avenger) {
         avengerNameLabel.text = avenger.avengerName
-        fetchAvengerImage(forAvenger: avenger)
-    }
-    
-    
-    func fetchAvengerImage(forAvenger avenger: Avenger) {
         AvengerService.fetchAvengerImage(forAvenger: avenger) { [weak self] result in
             switch result {
             case .success(let image):

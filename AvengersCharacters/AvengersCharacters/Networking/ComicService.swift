@@ -10,7 +10,6 @@ import UIKit
 struct ComicService {
     
     static func fetchComicList(offset: String, forAvenger avenger: Avenger, completion: @escaping (Result<ComicTopLevelDictionary, NetworkError>) -> Void ) {
-//    https://gateway.marvel.com/v1/public/characters/1009175/comics?limit=50&offset=0&ts=1&apikey=68470b7b93879cefb8d99a7c5a5b6c0f&hash=2823b9ddec02040bbdd3b5a6ae2c70f9
         guard let baseURL = URL(string: Constants.AvengersURL.baseURL) else { completion(.failure(.invalidURL)) ; return }
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         urlComponents?.path.append(contentsOf: "/\(avenger.avengerID)")

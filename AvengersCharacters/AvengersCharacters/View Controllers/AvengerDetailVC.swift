@@ -27,6 +27,9 @@ class AvengerDetailVC: UIViewController {
     
     //MARK: - PROPERTIES
     var avenger: Avenger?
+    var comicTopLevel: ComicTopLevelDictionary?
+    var comics: [Comic] = []
+    var offset = 0
     
     
     //MARK: - FUNCTIONS
@@ -44,6 +47,24 @@ class AvengerDetailVC: UIViewController {
                 print(error.errorDescription ?? Constants.Error.unknownError)
             }
         }
+        
+        fetchComicList(forAvenger: avenger)
+    }
+    
+    
+    func fetchComicList(forAvenger avenger: Avenger) {
+        ComicService.fetchComicList(offset: String(offset), forAvenger: avenger) { [weak self] result in
+            switch result {
+            case .success(let topLevel):
+                self?.comicTopLevel = topLevel
+                self?.comics = topLevel.comicListData.comicResults
+                DispatchQueue.main.async {
+                    self?.comicListTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.errorDescription ?? Constants.Error.unknownError)
+            }
+        }
     }
 } //: CLASS
 
@@ -52,12 +73,15 @@ class AvengerDetailVC: UIViewController {
 extension AvengerDetailVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return comics.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = comicListTableView.dequeueReusableCell(withIdentifier: "comicCell", for: indexPath)
+        guard let cell = comicListTableView.dequeueReusableCell(withIdentifier: "comicCell", for: indexPath) as? AvengerDetailTableViewCell else { return UITableViewCell() }
+        
+        let comic = comics[indexPath.row]
+        cell.updateUI(forComic: comic)
         
         return cell
     }
