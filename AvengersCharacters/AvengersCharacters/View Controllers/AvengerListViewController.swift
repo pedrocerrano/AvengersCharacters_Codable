@@ -35,7 +35,9 @@ class AvengerListViewController: UIViewController {
             case .success(let topLevel):
                 self?.topLevel = topLevel
                 self?.avengers = topLevel.listData.listResults.filter ({ avenger in
-                    !avenger.avengerImage.imagePath.contains("image_not_available") && !avenger.avengerImage.imageExtention.contains("gif")
+                    !avenger.avengerImage.imagePath.contains("image_not_available")
+                    && !avenger.avengerImage.imageExtention.contains("gif")
+                    && avenger.avengerComics.available != 0
                 })
                 
                 DispatchQueue.main.async {
@@ -71,6 +73,7 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "avengerCell", for: indexPath) as? AvengerListTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         
         let avenger = avengers[indexPath.row]
         cell.updateUI(forAvenger: avenger)

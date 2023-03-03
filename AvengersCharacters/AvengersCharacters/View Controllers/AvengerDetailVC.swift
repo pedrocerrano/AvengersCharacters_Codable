@@ -79,6 +79,7 @@ extension AvengerDetailVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = comicListTableView.dequeueReusableCell(withIdentifier: "comicCell", for: indexPath) as? AvengerDetailTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         
         let comic = comics[indexPath.row]
         cell.updateUI(forComic: comic)
