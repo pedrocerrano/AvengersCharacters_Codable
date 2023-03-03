@@ -82,7 +82,7 @@ extension AvengerListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         if indexPath.row == avengers.count - 1 {
-            offset += 100
+            offset += 50
             AvengerService.fetchAvengerList(paginationOffset: String(offset)) { [weak self] result in
                 switch result {
                 case .success(let topLevel):

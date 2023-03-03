@@ -16,7 +16,7 @@ struct Constants {
     
     struct UrlQueryComponents {
         static let limitKey         = "limit"
-        static let limitValue       = "100"
+        static let limitValue       = "50"
         static let offsetKey        = "offset"
         
         static let timeStampKey     = "ts"

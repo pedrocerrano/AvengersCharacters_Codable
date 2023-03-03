@@ -87,4 +87,24 @@ extension AvengerDetailVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let avenger = avenger else { return }
+        
+        if indexPath.row == comics.count - 1 {
+            offset += 50
+            ComicService.fetchComicList(offset: String(offset), forAvenger: avenger) { [weak self] result in
+                switch result {
+                case .success(let comicTopLevel):
+                    self?.comicTopLevel = comicTopLevel
+                    let additionalComics = comicTopLevel.comicListData.comicResults
+                    self?.comics.append(contentsOf: additionalComics)
+                    DispatchQueue.main.async {
+                        self?.comicListTableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.errorDescription ?? Constants.Error.unknownError)
+                }
+            }
+        }
+    }
 }
